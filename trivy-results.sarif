@@ -1,0 +1,308 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/main/sarif-2.1/schema/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "fullName": "Trivy Vulnerability Scanner",
+          "informationUri": "https://github.com/aquasecurity/trivy",
+          "name": "Trivy",
+          "rules": [
+            {
+              "id": "CVE-2026-19481",
+              "name": "LanguageSpecificPackageVulnerability",
+              "shortDescription": {
+                "text": "fastify/busboy: fastify/busboy: Denial of Service from crafted form-data headers"
+              },
+              "fullDescription": {
+                "text": "@fastify/busboy is a multipart form-data parser. In versions 1.0.0 through 3.2.0, an attacker who can submit multipart form-data can crash the parser by sending a part header whose name is a prototype-inherited property such as __proto__ or constructor. The internal header parser stores headers in a plain JavaScript object and assumes each value is an array, so an inherited property name resolves to a truthy non-array value and triggers a TypeError. In the common pipe integration the failure surfaces as an error event, but in direct write or end usage the exception is thrown synchronously and can terminate the Node.js process, causing an unauthenticated denial of service. The issue is fixed in @fastify/busboy 3.2.1, which creates the header object with a null prototype. Users should upgrade to 3.2.1."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2026-19481",
+              "help": {
+                "text": "Vulnerability CVE-2026-19481\nSeverity: HIGH\nPackage: @fastify/busboy\nFixed Version: 3.2.1\nLink: [CVE-2026-19481](https://avd.aquasec.com/nvd/cve-2026-19481)\n@fastify/busboy is a multipart form-data parser. In versions 1.0.0 through 3.2.0, an attacker who can submit multipart form-data can crash the parser by sending a part header whose name is a prototype-inherited property such as __proto__ or constructor. The internal header parser stores headers in a plain JavaScript object and assumes each value is an array, so an inherited property name resolves to a truthy non-array value and triggers a TypeError. In the common pipe integration the failure surfaces as an error event, but in direct write or end usage the exception is thrown synchronously and can terminate the Node.js process, causing an unauthenticated denial of service. The issue is fixed in @fastify/busboy 3.2.1, which creates the header object with a null prototype. Users should upgrade to 3.2.1.",
+                "markdown": "**Vulnerability CVE-2026-19481**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|HIGH|@fastify/busboy|3.2.1|[CVE-2026-19481](https://avd.aquasec.com/nvd/cve-2026-19481)|\n\n@fastify/busboy is a multipart form-data parser. In versions 1.0.0 through 3.2.0, an attacker who can submit multipart form-data can crash the parser by sending a part header whose name is a prototype-inherited property such as __proto__ or constructor. The internal header parser stores headers in a plain JavaScript object and assumes each value is an array, so an inherited property name resolves to a truthy non-array value and triggers a TypeError. In the common pipe integration the failure surfaces as an error event, but in direct write or end usage the exception is thrown synchronously and can terminate the Node.js process, causing an unauthenticated denial of service. The issue is fixed in @fastify/busboy 3.2.1, which creates the header object with a null prototype. Users should upgrade to 3.2.1."
+              },
+              "properties": {
+                "cvssv3_baseScore": 7.5,
+                "cvssv3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+                "precision": "very-high",
+                "security-severity": "7.5",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2024-45296",
+              "name": "LanguageSpecificPackageVulnerability",
+              "shortDescription": {
+                "text": "path-to-regexp: Backtracking regular expressions cause ReDoS"
+              },
+              "fullDescription": {
+                "text": "path-to-regexp turns path strings into a regular expressions. In certain cases, path-to-regexp will output a regular expression that can be exploited to cause poor performance. Because JavaScript is single threaded and regex matching runs on the main thread, poor performance will block the event loop and lead to a DoS. The bad regular expression is generated any time you have two parameters within a single segment, separated by something that is not a period (.). For users of 0.1, upgrade to 0.1.10. All other users should upgrade to 8.0.0."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2024-45296",
+              "help": {
+                "text": "Vulnerability CVE-2024-45296\nSeverity: HIGH\nPackage: path-to-regexp\nFixed Version: 1.9.0, 0.1.10, 8.0.0, 3.3.0, 6.3.0\nLink: [CVE-2024-45296](https://avd.aquasec.com/nvd/cve-2024-45296)\npath-to-regexp turns path strings into a regular expressions. In certain cases, path-to-regexp will output a regular expression that can be exploited to cause poor performance. Because JavaScript is single threaded and regex matching runs on the main thread, poor performance will block the event loop and lead to a DoS. The bad regular expression is generated any time you have two parameters within a single segment, separated by something that is not a period (.). For users of 0.1, upgrade to 0.1.10. All other users should upgrade to 8.0.0.",
+                "markdown": "**Vulnerability CVE-2024-45296**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|HIGH|path-to-regexp|1.9.0, 0.1.10, 8.0.0, 3.3.0, 6.3.0|[CVE-2024-45296](https://avd.aquasec.com/nvd/cve-2024-45296)|\n\npath-to-regexp turns path strings into a regular expressions. In certain cases, path-to-regexp will output a regular expression that can be exploited to cause poor performance. Because JavaScript is single threaded and regex matching runs on the main thread, poor performance will block the event loop and lead to a DoS. The bad regular expression is generated any time you have two parameters within a single segment, separated by something that is not a period (.). For users of 0.1, upgrade to 0.1.10. All other users should upgrade to 8.0.0."
+              },
+              "properties": {
+                "cvssv3_baseScore": 7.5,
+                "cvssv3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+                "cvssv40_baseScore": 7.7,
+                "cvssv40_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:P",
+                "precision": "very-high",
+                "security-severity": "7.5",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2026-12151",
+              "name": "LanguageSpecificPackageVulnerability",
+              "shortDescription": {
+                "text": "undici: undici: Denial of Service due to unbounded memory growth via WebSocket frames"
+              },
+              "fullDescription": {
+                "text": "Impact:\nThe undici WebSocket client enforces maxPayloadSize on the cumulative byte count of fragments in a message but does not enforce a limit on the number of fragments. A malicious WebSocket server can stream many small or empty continuation frames that each pass per-frame and cumulative-size validation, collectively causing unbounded memory growth in the client process. The result is memory exhaustion and a denial of service.\n\nAffected applications are those using the undici WebSocket client (new WebSocket(...)) or the WebSocketStream API that can be induced to connect to an attacker-controlled or compromised WebSocket endpoint.\n\nAll releases starting at undici 6.17.0 are affected.\n\nPatches: Upgrade to undici \u003e= 6.26.0, \u003e= 7.28.0, or \u003e= 8.5.0. Workarounds:\nNo workaround is available. The fix must be applied through an upgrade."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2026-12151",
+              "help": {
+                "text": "Vulnerability CVE-2026-12151\nSeverity: HIGH\nPackage: undici\nFixed Version: 6.27.0, 7.28.0, 8.5.0\nLink: [CVE-2026-12151](https://avd.aquasec.com/nvd/cve-2026-12151)\nImpact:\nThe undici WebSocket client enforces maxPayloadSize on the cumulative byte count of fragments in a message but does not enforce a limit on the number of fragments. A malicious WebSocket server can stream many small or empty continuation frames that each pass per-frame and cumulative-size validation, collectively causing unbounded memory growth in the client process. The result is memory exhaustion and a denial of service.\n\nAffected applications are those using the undici WebSocket client (new WebSocket(...)) or the WebSocketStream API that can be induced to connect to an attacker-controlled or compromised WebSocket endpoint.\n\nAll releases starting at undici 6.17.0 are affected.\n\nPatches: Upgrade to undici \u003e= 6.26.0, \u003e= 7.28.0, or \u003e= 8.5.0. Workarounds:\nNo workaround is available. The fix must be applied through an upgrade.",
+                "markdown": "**Vulnerability CVE-2026-12151**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|HIGH|undici|6.27.0, 7.28.0, 8.5.0|[CVE-2026-12151](https://avd.aquasec.com/nvd/cve-2026-12151)|\n\nImpact:\nThe undici WebSocket client enforces maxPayloadSize on the cumulative byte count of fragments in a message but does not enforce a limit on the number of fragments. A malicious WebSocket server can stream many small or empty continuation frames that each pass per-frame and cumulative-size validation, collectively causing unbounded memory growth in the client process. The result is memory exhaustion and a denial of service.\n\nAffected applications are those using the undici WebSocket client (new WebSocket(...)) or the WebSocketStream API that can be induced to connect to an attacker-controlled or compromised WebSocket endpoint.\n\nAll releases starting at undici 6.17.0 are affected.\n\nPatches: Upgrade to undici \u003e= 6.26.0, \u003e= 7.28.0, or \u003e= 8.5.0. Workarounds:\nNo workaround is available. The fix must be applied through an upgrade."
+              },
+              "properties": {
+                "cvssv3_baseScore": 7.5,
+                "cvssv3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+                "precision": "very-high",
+                "security-severity": "7.5",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2026-1526",
+              "name": "LanguageSpecificPackageVulnerability",
+              "shortDescription": {
+                "text": "undici: undici: Denial of Service via unbounded memory consumption during WebSocket permessage-deflate decompression"
+              },
+              "fullDescription": {
+                "text": "The undici WebSocket client is vulnerable to a denial-of-service attack via unbounded memory consumption during permessage-deflate decompression. When a WebSocket connection negotiates the permessage-deflate extension, the client decompresses incoming compressed frames without enforcing any limit on the decompressed data size. A malicious WebSocket server can send a small compressed frame (a \"decompression bomb\") that expands to an extremely large size in memory, causing the Node.js process to exhaust available memory and crash or become unresponsive.\n\nThe vulnerability exists in the PerMessageDeflate.decompress() method, which accumulates all decompressed chunks in memory and concatenates them into a single Buffer without checking whether the total size exceeds a safe threshold."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2026-1526",
+              "help": {
+                "text": "Vulnerability CVE-2026-1526\nSeverity: HIGH\nPackage: undici\nFixed Version: 6.24.0, 7.24.0\nLink: [CVE-2026-1526](https://avd.aquasec.com/nvd/cve-2026-1526)\nThe undici WebSocket client is vulnerable to a denial-of-service attack via unbounded memory consumption during permessage-deflate decompression. When a WebSocket connection negotiates the permessage-deflate extension, the client decompresses incoming compressed frames without enforcing any limit on the decompressed data size. A malicious WebSocket server can send a small compressed frame (a \"decompression bomb\") that expands to an extremely large size in memory, causing the Node.js process to exhaust available memory and crash or become unresponsive.\n\nThe vulnerability exists in the PerMessageDeflate.decompress() method, which accumulates all decompressed chunks in memory and concatenates them into a single Buffer without checking whether the total size exceeds a safe threshold.",
+                "markdown": "**Vulnerability CVE-2026-1526**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|HIGH|undici|6.24.0, 7.24.0|[CVE-2026-1526](https://avd.aquasec.com/nvd/cve-2026-1526)|\n\nThe undici WebSocket client is vulnerable to a denial-of-service attack via unbounded memory consumption during permessage-deflate decompression. When a WebSocket connection negotiates the permessage-deflate extension, the client decompresses incoming compressed frames without enforcing any limit on the decompressed data size. A malicious WebSocket server can send a small compressed frame (a \"decompression bomb\") that expands to an extremely large size in memory, causing the Node.js process to exhaust available memory and crash or become unresponsive.\n\nThe vulnerability exists in the PerMessageDeflate.decompress() method, which accumulates all decompressed chunks in memory and concatenates them into a single Buffer without checking whether the total size exceeds a safe threshold."
+              },
+              "properties": {
+                "cvssv3_baseScore": 7.5,
+                "cvssv3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+                "precision": "very-high",
+                "security-severity": "7.5",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "HIGH"
+                ]
+              }
+            },
+            {
+              "id": "CVE-2026-2229",
+              "name": "LanguageSpecificPackageVulnerability",
+              "shortDescription": {
+                "text": "undici: Undici: Denial of Service via invalid WebSocket permessage-deflate extension parameter"
+              },
+              "fullDescription": {
+                "text": "ImpactThe undici WebSocket client is vulnerable to a denial-of-service attack due to improper validation of the server_max_window_bits parameter in the permessage-deflate extension. When a WebSocket client connects to a server, it automatically advertises support for permessage-deflate compression. A malicious server can respond with an out-of-range server_max_window_bits value (outside zlib's valid range of 8-15). When the server subsequently sends a compressed frame, the client attempts to create a zlib InflateRaw instance with the invalid windowBits value, causing a synchronous RangeError exception that is not caught, resulting in immediate process termination.\n\nThe vulnerability exists because:\n\n  *  The isValidClientWindowBits() function only validates that the value contains ASCII digits, not that it falls within the valid range 8-15\n  *  The createInflateRaw() call is not wrapped in a try-catch block\n  *  The resulting exception propagates up through the call stack and crashes the Node.js process"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://avd.aquasec.com/nvd/cve-2026-2229",
+              "help": {
+                "text": "Vulnerability CVE-2026-2229\nSeverity: HIGH\nPackage: undici\nFixed Version: 6.24.0, 7.24.0\nLink: [CVE-2026-2229](https://avd.aquasec.com/nvd/cve-2026-2229)\nImpactThe undici WebSocket client is vulnerable to a denial-of-service attack due to improper validation of the server_max_window_bits parameter in the permessage-deflate extension. When a WebSocket client connects to a server, it automatically advertises support for permessage-deflate compression. A malicious server can respond with an out-of-range server_max_window_bits value (outside zlib's valid range of 8-15). When the server subsequently sends a compressed frame, the client attempts to create a zlib InflateRaw instance with the invalid windowBits value, causing a synchronous RangeError exception that is not caught, resulting in immediate process termination.\n\nThe vulnerability exists because:\n\n  *  The isValidClientWindowBits() function only validates that the value contains ASCII digits, not that it falls within the valid range 8-15\n  *  The createInflateRaw() call is not wrapped in a try-catch block\n  *  The resulting exception propagates up through the call stack and crashes the Node.js process",
+                "markdown": "**Vulnerability CVE-2026-2229**\n| Severity | Package | Fixed Version | Link |\n| --- | --- | --- | --- |\n|HIGH|undici|6.24.0, 7.24.0|[CVE-2026-2229](https://avd.aquasec.com/nvd/cve-2026-2229)|\n\nImpactThe undici WebSocket client is vulnerable to a denial-of-service attack due to improper validation of the server_max_window_bits parameter in the permessage-deflate extension. When a WebSocket client connects to a server, it automatically advertises support for permessage-deflate compression. A malicious server can respond with an out-of-range server_max_window_bits value (outside zlib's valid range of 8-15). When the server subsequently sends a compressed frame, the client attempts to create a zlib InflateRaw instance with the invalid windowBits value, causing a synchronous RangeError exception that is not caught, resulting in immediate process termination.\n\nThe vulnerability exists because:\n\n  *  The isValidClientWindowBits() function only validates that the value contains ASCII digits, not that it falls within the valid range 8-15\n  *  The createInflateRaw() call is not wrapped in a try-catch block\n  *  The resulting exception propagates up through the call stack and crashes the Node.js process"
+              },
+              "properties": {
+                "cvssv3_baseScore": 7.5,
+                "cvssv3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+                "precision": "very-high",
+                "security-severity": "7.5",
+                "tags": [
+                  "vulnerability",
+                  "security",
+                  "HIGH"
+                ]
+              }
+            }
+          ],
+          "version": "0.76.1"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "CVE-2026-19481",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "Package: @fastify/busboy\nInstalled Version: 2.1.1\nVulnerability CVE-2026-19481\nSeverity: HIGH\nFixed Version: 3.2.1\nLink: [CVE-2026-19481](https://avd.aquasec.com/nvd/cve-2026-19481)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "backend/package-lock.json",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 480,
+                  "startColumn": 1,
+                  "endLine": 488,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "backend/package-lock.json: @fastify/busboy@2.1.1"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2024-45296",
+          "ruleIndex": 1,
+          "level": "error",
+          "message": {
+            "text": "Package: path-to-regexp\nInstalled Version: 6.1.0\nVulnerability CVE-2024-45296\nSeverity: HIGH\nFixed Version: 1.9.0, 0.1.10, 8.0.0, 3.3.0, 6.3.0\nLink: [CVE-2024-45296](https://avd.aquasec.com/nvd/cve-2024-45296)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "backend/package-lock.json",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 718,
+                  "startColumn": 1,
+                  "endLine": 723,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "backend/package-lock.json: path-to-regexp@6.1.0"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-12151",
+          "ruleIndex": 2,
+          "level": "error",
+          "message": {
+            "text": "Package: undici\nInstalled Version: 5.28.4\nVulnerability CVE-2026-12151\nSeverity: HIGH\nFixed Version: 6.27.0, 7.28.0, 8.5.0\nLink: [CVE-2026-12151](https://avd.aquasec.com/nvd/cve-2026-12151)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "backend/package-lock.json",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 2425,
+                  "startColumn": 1,
+                  "endLine": 2436,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "backend/package-lock.json: undici@5.28.4"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-1526",
+          "ruleIndex": 3,
+          "level": "error",
+          "message": {
+            "text": "Package: undici\nInstalled Version: 5.28.4\nVulnerability CVE-2026-1526\nSeverity: HIGH\nFixed Version: 6.24.0, 7.24.0\nLink: [CVE-2026-1526](https://avd.aquasec.com/nvd/cve-2026-1526)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "backend/package-lock.json",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 2425,
+                  "startColumn": 1,
+                  "endLine": 2436,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "backend/package-lock.json: undici@5.28.4"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CVE-2026-2229",
+          "ruleIndex": 4,
+          "level": "error",
+          "message": {
+            "text": "Package: undici\nInstalled Version: 5.28.4\nVulnerability CVE-2026-2229\nSeverity: HIGH\nFixed Version: 6.24.0, 7.24.0\nLink: [CVE-2026-2229](https://avd.aquasec.com/nvd/cve-2026-2229)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "backend/package-lock.json",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 2425,
+                  "startColumn": 1,
+                  "endLine": 2436,
+                  "endColumn": 1
+                }
+              },
+              "message": {
+                "text": "backend/package-lock.json: undici@5.28.4"
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits",
+      "originalUriBaseIds": {
+        "ROOTPATH": {
+          "uri": "file:///E:/Semester 5/PABWE/ifs24051-pabwe2026-p1/"
+        }
+      }
+    }
+  ]
+}
